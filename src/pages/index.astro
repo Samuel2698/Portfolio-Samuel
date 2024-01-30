@@ -1,0 +1,83 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Badge from "../components/Badge.astro";
+import LinkedInIcon from "../components/icons/LinkedIn.astro";
+import GitHubIcon from "../components/icons/GitHub.astro";
+import SocialPill from "../components/SocialPill.astro";
+import MailIcon from "../components/icons/Mail.astro";
+import Experience from "../components/Experience.astro";
+import Briefcase from "../components/icons/Briefcase.astro";
+import Code from "../components/icons/Code.astro";
+import Projects from "../components/Projects.astro";
+---
+
+<Layout
+  title="Portfolio de Samuel 👨‍💻"
+  description="Embauchez Samuel en tant que développeur web Front-End ! Il est passionné et spécialisé dans la création des meilleures expériences web en React et JavaScript !"
+>
+  <main class="px-4">
+    <SectionContainer class="py-20 pb-32">
+      <img
+        class="rounded-full size-12 mb-4"
+        src="photo_samuel.jpg"
+        alt="Samuel's photo"
+      />
+      <h1
+        class="text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+      >
+        Hello, je suis Samuel
+        <a
+          href="https://www.linkedin.com/in/samuel-velasco7/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex justify-center items-center"
+        >
+          <Badge>Disponible pour travailler</Badge>
+        </a>
+      </h1>
+      <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
+        <span>6 mois d'expérience professionnelle.</span>
+        <span class="text-yellow-200"
+          >Développeur web front-end passionné et discipliné.</span
+        >
+        <span class="opacity-80">Je me spécialise en React et JavaScript.</span>
+      </h2>
+
+      <nav class="flex gap-4 mt-8 flex-grap flex-col sm:flex-row">
+        <SocialPill
+          href="https://www.linkedin.com/in/samuel-velasco7/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <LinkedInIcon class="size-3 md:size-4 lg:size-6" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://github.com/Samuel2698">
+          <GitHubIcon class="size-3 md:size-4 lg:size-6" />
+          GitHub
+        </SocialPill>
+        <SocialPill href="mailto:samuelvelasco2698@gmail.com">
+          <MailIcon class="size-3 md:size-4 lg:size-6" />
+          samuelvelasco2698@gmail.com
+        </SocialPill>
+      </nav>
+    </SectionContainer>
+
+    <SectionContainer id="experience">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Briefcase class="size-7" />
+        Expérience Professionnelle
+      </h2>
+      <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="projects">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Code class="size-7" />
+        Projets Principaux
+      </h2>
+      <Projects />
+    </SectionContainer>
+  </main>
+</Layout>

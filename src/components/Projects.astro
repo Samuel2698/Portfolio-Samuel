@@ -1,0 +1,111 @@
+---
+import ReactIcon from "../components/icons/ReactIcon.astro";
+import Vue from "../components/icons/Vue.astro";
+import JavaScript from "../components/icons/JavaScript.astro";
+import TypeScript from "../components/icons/TypeScript.astro";
+import CSS from "../components/icons/CSS.astro";
+import Tailwind from "../components/icons/Tailwind.astro";
+import SocialPill from "./SocialPill.astro";
+import Web from "./icons/Web.astro";
+import GitHubIcon from "./icons/GitHub.astro";
+
+const TAGS = {
+  React: {
+    name: "React",
+    class: "bg-blue-500/60 text-white",
+    icon: ReactIcon,
+  },
+  Vue: {
+    name: "Vue",
+    class: "bg-green-700 text-white",
+    icon: Vue,
+  },
+  JavaScript: {
+    name: "JavaScript",
+    class: "bg-yellow-400/80 text-white",
+    icon: JavaScript,
+  },
+  TypeScript: {
+    name: "TypeScript",
+    class: "bg-blue-700/60 text-white",
+    icon: TypeScript,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-[#003159] text-white",
+    icon: CSS,
+  },
+  Tailwind: {
+    name: "Tailwind",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "Kasa",
+    description:
+      "Mon projet React le plus long. Kasa est un site de location immobilière.",
+    link: "https://65b7a6dfda32af007548265b--animated-moonbeam-503998.netlify.app/",
+    github: "https://github.com/Samuel2698/Last-OC-React-Project-Kasa",
+    image: "kasa.png",
+    tags: [TAGS.React, TAGS.JavaScript, TAGS.CSS],
+  },
+  {
+    title: "App de Films",
+    description:
+      "Mon projet React avec le plus de logique dans le code. Cette appli de films utilise TypeScript ainsi que plusieurs hooks et custom hooks.",
+    link: "https://65b7a65f2e514508c2019743--effulgent-axolotl-5a469f.netlify.app/",
+    github: "https://github.com/Samuel2698/React-TS-Films",
+    image: "films.png",
+    tags: [TAGS.React, TAGS.TypeScript, TAGS.CSS],
+  },
+  {
+    title: "App de Pays",
+    description:
+      "Un projet utilisant Vue.js. Cette appli de pays est conçue avec Tailwind CSS et TypeScript pour une expérience de développement moderne.",
+    link: "https://65b9133f5cf9e0007b255abe--sensational-fairy-88004b.netlify.app/",
+    github: "https://github.com/Samuel2698/Vue-TS-Pays",
+    image: "pays.png",
+    tags: [TAGS.Vue, TAGS.TypeScript, TAGS.Tailwind],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ title, description, tags, image, link, github }) => (
+    <article class="mb-20">
+      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-2 flex-row mb-3">
+        {tags.map((tag) => (
+          <li>
+            <span
+              class={`flex gap-x-2 rounded-full text-sm ${tag.class} py-1 px-2`}
+            >
+              <tag.icon class="size-4" />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <img
+        class="rounded object-cover shadow-2xl shadow-white/10"
+        loading="lazy"
+        src={image}
+        alt={`Capture d'écran du projet: ${title}`}
+      />
+      <div class="flex gap-x-4  flex-row mt-4">
+        <SocialPill href={link} target="_blank" rel="noopener noreferrer">
+          <Web class="size-3 md:size-4 lg:size-6" />
+          Aller sur le site web
+        </SocialPill>
+        <SocialPill href={github}>
+          <GitHubIcon class="size-3 md:size-4 lg:size-6" />
+          Voir le code source
+        </SocialPill>
+      </div>
+    </article>
+  ))
+}

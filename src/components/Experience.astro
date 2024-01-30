@@ -1,0 +1,22 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+  {
+    date: "Mars 2023 - Août 2023",
+    title: "Front-end Developer Jr chez Djob",
+    description:
+      "En tant que Front-end Developer Jr chez Djob, j'ai participé à la création et à la refactorisation d'une application d'entreprise. J'ai utilisé les technos suivantes : React, TypeScript, Redux et Material-UI.",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
